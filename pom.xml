@@ -547,7 +547,7 @@
 								<review.team>qa</review.team>
 							</deployProperties>
 							<publisher>
-								<contextUrl>https://artifactory-x.curvc.com</contextUrl>
+								<contextUrl>https://artifactory-x.curvc.com/artifactory</contextUrl>
 								<username>${username}</username>
 								<password>${password}</password>
 								<repoKey>curvc-maven-local</repoKey>
