@@ -38,4 +38,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Curvc-DevOps_shopizer_9d04acd6-ae80-4bed-9ff1-4e3ed7dc1158 -Dsonar.projectName='shopizer'
+        #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Curvc-DevOps_shopizer_9d04acd6-ae80-4bed-9ff1-4e3ed7dc1158 -Dsonar.projectName='shopizer'
+        run: mvn -B clean install
