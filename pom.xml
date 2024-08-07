@@ -497,14 +497,6 @@
 			<url>https://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
-	<distributionManagement>
-		<repository>
-			<id>curvc-artifactory</id>
-			<name>CURVC Artifactory Maven Repository</name>
-			<url>https://artifactory-x.curvc.com:443/artifactory/curvc-maven-local/</url>
-		</repository>
-	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -542,13 +534,14 @@
 							<goal>publish</goal>
 						</goals>
 						<configuration>
-							<buildInfo>
-								<buildNumber>${buildnumber}</buildNumber>
-							</buildInfo>
 							<deployProperties>
 								<gradle>awesome</gradle>
-								<review.team>qa</review.team>
 							</deployProperties>
+			                            	<artifactory>
+			                                	<includeEnvVars>true</includeEnvVars>
+			                                	<envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
+			                                	<timeoutSec>60</timeoutSec>
+			                            	</artifactory>
 							<publisher>
 								<contextUrl>https://artifactory-x.curvc.com/artifactory</contextUrl>
 								<username>${username}</username>
@@ -556,6 +549,11 @@
 								<repoKey>curvc-maven-local</repoKey>
 								<snapshotRepoKey>curvc-maven-local-snapshot</snapshotRepoKey>
 							</publisher>
+                            				<buildInfo>
+                                				<buildName>shopizer</buildName>
+                                				<buildNumber>${buildnumber}</buildNumber>
+                                				<buildUrl>${buildurl}</buildUrl>
+                            				</buildInfo>
 						</configuration>
 					</execution>
 				</executions>
