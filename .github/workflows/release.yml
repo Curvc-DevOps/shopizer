@@ -1,7 +1,10 @@
 name: shopizer CI Extension - Publish
+
 on:
   release:
     types: [created]
+  workflow_dispatch:
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
           server-username: ARTIFACTORY_USERNAME
           server-password: ARTIFACTORY_TOKEN
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode deploy -Dusername=${{ env.ARTIFACTORY_USERNAME }} -Dpassword=${{ env.ARTIFACTORY_TOKEN }} -Dbuildnumber=${{github.run_number}}
         env:
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}

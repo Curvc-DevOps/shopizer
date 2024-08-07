@@ -531,7 +531,34 @@
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>3.1.8</version>
 			</plugin>
+			<plugin>
+				<groupId>org.jfrog.buildinfo</groupId>
+				<artifactId>artifactory-maven-plugin</artifactId>
+				<version>3.6.1</version>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>publish</goal>
+						</goals>
+						<configuration>
+							<deployProperties>
+								<gradle>awesome</gradle>
+								<review.team>qa</review.team>
+							</deployProperties>
+							<publisher>
+								<contextUrl>https://artifactory-x.curvc.com</contextUrl>
+								<username>${username}</username>
+								<password>${password}</password>
+								<repoKey>curvc-maven-local</repoKey>
+								<snapshotRepoKey>curvc-maven-local-snapshot</snapshotRepoKey>
+							</publisher>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<!--OSSRH -->
+			<!--
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -543,6 +570,7 @@
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
+			-->
 			<!--OSSRH -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
