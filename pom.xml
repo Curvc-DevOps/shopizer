@@ -548,6 +548,8 @@
 							</deployProperties>
 							<publisher>
 								<contextUrl>https://artifactory-x.curvc.com</contextUrl>
+								<username>${username}</username>
+								<password>${password}</password>
 								<repoKey>curvc-maven-local</repoKey>
 								<snapshotRepoKey>curvc-maven-local-snapshot</snapshotRepoKey>
 							</publisher>
