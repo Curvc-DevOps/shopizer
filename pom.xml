@@ -497,6 +497,14 @@
 			<url>https://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>curvc-artifactory</id>
+			<name>CURVC Artifactory Maven Repository</name>
+			<url>https://artifactory-x.curvc.com:443/artifactory/curvc-maven-local/</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
