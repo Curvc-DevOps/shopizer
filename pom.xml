@@ -542,6 +542,9 @@
 							<goal>publish</goal>
 						</goals>
 						<configuration>
+							<buildInfo>
+								<buildNumber>${buildnumber}</buildNumber>
+							</buildInfo>
 							<deployProperties>
 								<gradle>awesome</gradle>
 								<review.team>qa</review.team>
